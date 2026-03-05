@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+        /* ~80px offset for the fixed navbar */
+    }
+}
+
+@layer utilities {
+    .blob-bg {
+        @apply absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full -z-10 blur-[60px];
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(5, 5, 5, 0) 70%);
+    }
+
+    .blob-2 {
+        @apply top-[40%] right-[-10%] left-auto;
+        background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(5, 5, 5, 0) 70%);
+    }
+
+    .glass-panel {
+        @apply bg-glass-bg border border-glass-border backdrop-blur-md shadow-2xl;
+    }
+
+    .gradient-text {
+        @apply bg-clip-text text-transparent;
+        background-image: linear-gradient(135deg, #818cf8, #f472b6);
+    }
+
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
